@@ -1,0 +1,95 @@
+<core:View xmlns:core="sap.ui.core"
+		   xmlns="sap.uxap"
+		   xmlns:layout="sap.ui.layout"
+		   xmlns:forms="sap.ui.layout.form"
+		   xmlns:m="sap.m"
+		   controllerName="com.learning.controller.Details"
+		   height="100%">
+
+	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" showFooter='true'>
+		<headerTitle>
+			<ObjectPageHeader objectImageURI="{oDataModel>PhotoPath}"
+							  objectTitle="{oDataModel>FirstName} {oDataModel>LastName}"
+							  objectImageShape="Circle"
+							  objectImageAlt="{oDataModel>FirstName} {oDataModel>LastName}"
+							  isObjectIconAlwaysVisible="true"
+							  objectSubtitle="{oDataModel>Title}">
+			</ObjectPageHeader>
+		</headerTitle>
+
+		<headerContent>
+			<layout:VerticalLayout>
+				<m:Link text="{oDataModel>HomePhone}"/>
+				<m:Link text="{oDataModel>FirstName}.{oDataModel>LastName}@hurray.com"/>
+				<layout:HorizontalLayout>
+					<m:Image src="./test-resources/sap/uxap/images/linkedin.png"></m:Image>
+					<m:Image src="./test-resources/sap/uxap/images/Twitter.png"></m:Image>
+				</layout:HorizontalLayout>
+			</layout:VerticalLayout>
+
+			<layout:VerticalLayout>
+				<m:VBox height="63px">
+					<m:Label text="Achieved goals"/>
+					<m:ProgressIndicator
+							percentValue="30"
+							displayValue="30%"
+							showValue="true"
+							state="None"/>
+				</m:VBox>
+			</layout:VerticalLayout>
+
+			<layout:VerticalLayout>
+				<m:Label text="Extn: {oDataModel>Extension}"/>
+			</layout:VerticalLayout>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection title="Personal">
+				<subSections>
+					<ObjectPageSubSection title=" ">
+						<blocks>
+							<forms:SimpleForm
+								labelSpanL="4"
+								labelSpanM="4"
+								labelSpanS="4"
+								emptySpanL="0"
+								emptySpanM="0"
+								emptySpanS="0"
+								maxContainerCols="2" layout="ResponsiveLayout"
+								width="100%">
+							<core:Title text="Adresses"></core:Title>
+							<m:Label text="Home Address"/>
+					
+							<layout:VerticalLayout>
+								<m:Text text="{oDataModel>Address}"/>
+								<m:Text text="{oDataModel>City}"/>
+								<m:Text text="{oDataModel>Country}"/>
+							</layout:VerticalLayout>
+							<m:Label text="Mailing Address"/>
+						</forms:SimpleForm>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection title="Employment">
+				<subSections>
+					<ObjectPageSubSection title="Employment">
+						<blocks>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+		<footer>
+			<m:Bar>
+				<m:contentRight>
+					<m:Button text='Back to Single Page' press='onNav'>
+					</m:Button>
+					<m:Button text='To Catgories' press='onNavToCategories'>
+					</m:Button>
+				</m:contentRight>
+			</m:Bar>
+		</footer>
+	</ObjectPageLayout>
+</core:View>

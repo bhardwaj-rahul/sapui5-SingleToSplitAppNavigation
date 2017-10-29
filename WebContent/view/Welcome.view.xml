@@ -1,0 +1,26 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="com.learning.controller.Welcome" xmlns:html="http://www.w3.org/1999/xhtml">
+	
+	<Page id='idPage' title='Welcome' >
+		<content>
+			<TileContainer>
+				<StandardTile
+					icon="sap-icon://screen-split-one"
+					title="Employees"
+					info="Employees Details"
+					press='onPress'
+					type='Monitor'
+				/>
+				<StandardTile
+					icon="sap-icon://list"
+					title="Categories"
+					info="Categories"
+					press='onPressCategories'
+					type='Monitor'
+				/>
+			</TileContainer>
+			
+		</content>
+	</Page>
+	
+</core:View>

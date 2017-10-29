@@ -1,0 +1,29 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="com.learning.controller.Employees" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Employees">
+		<content>
+			<SearchField
+				placeholder='Search Employee'
+				search='onEmpSearch'
+				enableSuggestions="true">
+				</SearchField>
+			<List
+				id='idEmpList'
+				mode='None'
+				backgroundDesign="Transparent"
+				items="{oDataModel>/Employees}">
+				<items>
+					<ObjectListItem 
+						title="{oDataModel>FirstName} {oDataModel>LastName}"
+						number="{oDataModel>EmployeeID}"
+						numberUnit="ID"
+						type='Active'
+						description="{oDataModel>Description}"
+						press='onEmpPress'>
+					</ObjectListItem>
+				</items>
+			</List>
+				
+		</content>
+	</Page>
+</core:View>

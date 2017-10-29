@@ -1,0 +1,116 @@
+{
+	"_version": "1.0.0",
+	"sap.app": {
+		"_version": "1.0.0",
+		"id": "idSplitApp",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDesc}}",
+		"dataSources": {
+			"northWind": {
+				"uri": "proxy/http/services.odata.org/Northwind/Northwind.svc/",
+				"type": "OData"
+			},
+			"localModel": {
+				"type": "JSON"
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.0.0",
+		"technology": "ui5"
+	},
+	"sap.ui5": {
+		"_version": "1.0.0",
+		"rootView": "com.learning.view.App",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": {
+				}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"oDataModel": {
+				"preload": "true",
+				"dataSource": "northWind"
+			},
+			"": {
+				"preload": "true",
+				"dataSource": "localModel"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.learning.view",
+				"controlId": "idApp",
+				"clearControlAggregation": "false"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "welcome",
+					"target": [
+						"welcome"
+					]
+				},
+				{
+					"pattern": "employees",
+					"name": "employees",
+					"target": "employees"
+				},
+				{
+					"pattern": "details/{id}",
+					"name": "details",
+					"target": [
+						"details",
+						"employees"
+						]
+				},
+				{
+					"pattern" : "categories",
+					"name": "categories",
+					"target" : "categories"
+				}
+				
+			],
+			
+			"targets": {
+				"welcome": {
+					"viewName": "Welcome",
+					"controlAggregation": "pages"
+				},
+				"employees": {
+					"viewName":"Employees",
+					"parent": "splitApp",
+					"controlAggregation": "masterPages",
+					 "controlId": "idSplitApp"
+				},
+				"details": {
+					"viewName": "Details",
+					"parent": "splitApp",
+					 "controlId": "idSplitApp",
+					"controlAggregation": "detailPages"
+				},
+				
+				"splitApp": {
+					"viewName": "SplitApp",
+					"controlAggregation": "pages"
+				},
+				"categories": {
+					"viewName": "Categories",
+					"controlAggregation": "pages"
+				}
+			}
+		}
+	}
+}

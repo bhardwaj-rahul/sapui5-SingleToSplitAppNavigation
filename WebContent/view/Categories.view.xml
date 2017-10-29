@@ -1,0 +1,39 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="com.learning.controller.Categories" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Categories" showHeader='true'>
+		<content>
+			<SearchField
+				placeholder='Search Category'
+				search='onCategorySearch'
+				enableSuggestions="true"
+				suggestionItems="{oDataModel>/Categories}">
+				<suggestionItems>
+					<SuggestionItem
+						description="{oDataModel>CategoryName}">
+					</SuggestionItem>	
+				</suggestionItems>
+				</SearchField>
+			<List
+				mode='None'
+				backgroundDesign="Transparent"
+				items="{oDataModel>/Categories}">
+				<items>
+					<ObjectListItem 
+						title="{oDataModel>CategoryName}"
+						type='Active'
+						description="{oDataModel>Description}"
+						press='onCategoryPress'>
+					</ObjectListItem>
+				</items>
+			</List>
+				
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text='Back to Single Page' press='onNav' />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>
