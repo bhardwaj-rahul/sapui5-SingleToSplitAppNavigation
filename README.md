@@ -9,8 +9,12 @@ It is possible to Navigate to Split App from tile 1 and then go to a single Page
 
 It will help understand how routing can be used.
 
-Possible scenarios:
+# Possible scenarios:
 
 1. Home -> Employees Split App -> Master -> Detail 
 2. Home -> Categories List
 3. Home -> Employees Split App -> Master -> Detail -> Categories -> Home
+
+# Demo:
+
+![alt text](https://github.com/bhardwaj-rahul/sapui5-SingleToSplitAppNavigation/blob/master/Demo.gif "Demo")
